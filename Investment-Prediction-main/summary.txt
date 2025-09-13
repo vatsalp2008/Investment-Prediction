@@ -1,0 +1,14 @@
+Stock	MAE (↓)	RMSE (↓)	Comments
+AAPL	8.11	11.35	Acceptable — decent prediction, may improve with hyperparameter tuning.
+AMZN	7.17	8.79	Performing well.
+GC=F	44.31	57.64	High error — Gold is volatile and harder to model with LSTM.
+GOOGL	6.13	7.19	One of the best — very accurate predictions.
+MSFT	8.62	11.02	Moderate — good for basic predictions.
+NVDA	7.60	9.26	Also decent. May benefit from a more complex model.
+TSLA	18.82	24.53	Higher error — Tesla's price is highly volatile.
+
+✅ GOOGL and AMZN have strong accuracy.
+
+✅ AAPL, NVDA, MSFT are moderately accurate — acceptable for general trends.
+
+⚠️ GC=F (Gold) and TSLA are more volatile, leading to higher error."

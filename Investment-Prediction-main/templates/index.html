@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Predictor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Set the full-page background */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Roboto, sans-serif;
+            color: #66b3a1;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Style the title text */
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Sidebar button (Fixed Position) */
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000; /* Ensures button stays above everything */
+        }
+
+        /* Sidebar menu */
+        .sidebar {
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: width 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #66b3a1;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Toggle Button -->
+    <button id="menuButton" class="menu-button" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <a href="/">Home</a>
+        <a href="/market">Market</a>
+        <a href="/predict">Predict</a>
+    </div>
+
+    <!-- Title -->
+    <h1 class="title">Investment Predictor</h1>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var button = document.getElementById("menuButton");
+
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                button.style.transform = "rotate(0deg)";
+            } else {
+                sidebar.style.width = "250px";
+                button.style.transform = "rotate(90deg)";
+            }
+        }
+    </script>
+
+</body>
+</html>
