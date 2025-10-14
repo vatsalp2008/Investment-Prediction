@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market</title>
+    <style>
+        body {
+            background: url('/static/images/marketbg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: #66b3a1;
+            background: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .stock-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 60px auto 20px auto;
+        }
+        .stock-card {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .stock-card:hover {
+            transform: scale(1.05);
+            background: rgba(40, 40, 40, 0.8);
+        }
+        .stock-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #66b3a1;
+        }
+    </style>
+</head>
+<body>
+    <h2>Stock Market Prices</h2>
+    <div class="stock-container">
+        {% for stock, data in stock_data.items() %}
+        <div class="stock-card">
+            <h3>{{ stock }}</h3>
+            <p class="stock-price" id="{{ stock }}">${{ data.latest_price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function updateStockPrices() {
+            fetch('/market-data')
+                .then(response => response.json())
+                .then(data => {
+                    for (const stock in data) {
+                        document.getElementById(stock).innerText = "$" + data[stock].latest_price;
+                    }
+                })
+                .catch(error => console.error("Error fetching stock data:", error));
+        }
+
+        setInterval(updateStockPrices, 1000);  // Auto-refresh every 2 seconds
+    </script>
+</body>
+</html>

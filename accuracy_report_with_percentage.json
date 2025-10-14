@@ -1,0 +1,51 @@
+{
+    "AAPL": {
+        "MSE": 128.7103,
+        "MAE": 8.1122,
+        "RMSE": 11.3451,
+        "Avg_Actual": 234.66,
+        "Accuracy (%)": 95.17
+    },
+    "AMZN": {
+        "MSE": 77.1864,
+        "MAE": 7.1727,
+        "RMSE": 8.7856,
+        "Avg_Actual": 232.93,
+        "Accuracy (%)": 96.23
+    },
+    "GC=F": {
+        "MSE": 3322.2945,
+        "MAE": 44.3067,
+        "RMSE": 57.6393,
+        "Avg_Actual": 3631.66,
+        "Accuracy (%)": 98.41
+    },
+    "GOOGL": {
+        "MSE": 51.7153,
+        "MAE": 6.1266,
+        "RMSE": 7.1913,
+        "Avg_Actual": 237.27,
+        "Accuracy (%)": 96.97
+    },
+    "MSFT": {
+        "MSE": 121.3885,
+        "MAE": 8.6217,
+        "RMSE": 11.0176,
+        "Avg_Actual": 501.55,
+        "Accuracy (%)": 97.8
+    },
+    "NVDA": {
+        "MSE": 85.8072,
+        "MAE": 7.598,
+        "RMSE": 9.2632,
+        "Avg_Actual": 172.86,
+        "Accuracy (%)": 94.64
+    },
+    "TSLA": {
+        "MSE": 601.6967,
+        "MAE": 18.8198,
+        "RMSE": 24.5295,
+        "Avg_Actual": 356.47,
+        "Accuracy (%)": 93.12
+    }
+}

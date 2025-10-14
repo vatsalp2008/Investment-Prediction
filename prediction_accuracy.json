@@ -1,0 +1,23 @@
+{
+    "AAPL": {
+        "error": "[Errno 2] No such file or directory: 'models/AAPL_actual.npy'"
+    },
+    "AMZN": {
+        "error": "[Errno 2] No such file or directory: 'models/AMZN_actual.npy'"
+    },
+    "GC=F": {
+        "error": "[Errno 2] No such file or directory: 'models/GC=F_actual.npy'"
+    },
+    "GOOGL": {
+        "error": "[Errno 2] No such file or directory: 'models/GOOGL_actual.npy'"
+    },
+    "MSFT": {
+        "error": "[Errno 2] No such file or directory: 'models/MSFT_actual.npy'"
+    },
+    "NVDA": {
+        "error": "[Errno 2] No such file or directory: 'models/NVDA_actual.npy'"
+    },
+    "TSLA": {
+        "error": "[Errno 2] No such file or directory: 'models/TSLA_actual.npy'"
+    }
+}
