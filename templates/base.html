@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#66b3a1',
+                        dark: '#000000',
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-dark text-white">
+
+    <!-- Sidebar -->
+    <div class="fixed top-0 left-0 h-full w-64 bg-gray-900 shadow-lg hidden" id="sidebar">
+        <button onclick="toggleSidebar()" class="text-right p-4">X</button>
+        <ul class="mt-8">
+            <li class="p-4 hover:bg-primary"><a href="{{ url_for('market') }}">Market</a></li>
+            <li class="p-4 hover:bg-primary"><a href="{{ url_for('predict') }}">Predict</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button onclick="toggleSidebar()" class="absolute top-4 left-4 bg-primary p-2 rounded-md">☰</button>
+
+    <div class="container mx-auto">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ stock_name }} Prediction</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #1e1e1e;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            transition: 0.3s;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+        .sidebar a:hover {
+            background-color: #66b3a1;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            color: white;
+            z-index: 1100;
+        }
+        .menu-btn.rotate {
+            transform: rotate(90deg);
+        }
+
+        /* Content */
+        .container {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar.active + .container {
+            margin-left: 250px;
+        }
+
+        .stock-details {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        .latest-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66b3a1;
+        }
+        .graph-container {
+            margin-top: 20px;
+        }
+        .graph-container img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar" id="sidebar">
+        <a href="/">Home</a>
+        <a href="/market">Market</a>
+        <a href="/predict">Predict</a>
+    </div>
+
+    <div class="container">
+        <h2>{{ stock_name }} Stock Prediction</h2>
+        <div class="stock-details">
+            <p>Latest Stock Price: <span class="latest-price">${{ "%.2f"|format(latest_price) }}</span></p>
+        </div>
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Stock Price Forecast">
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+
+            sidebar.classList.toggle("active");
+            menuBtn.classList.toggle("rotate");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Stock Prices</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #1e1e1e;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            transition: 0.3s;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+        .sidebar a:hover {
+            background-color: #66b3a1;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .menu-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            color: white;
+            z-index: 1100;
+        }
+        .menu-btn.rotate {
+            transform: rotate(90deg);
+        }
+
+        /* Stock Grid */
+        h2 {
+            margin-top: 20px;
+            color: #66b3a1;
+        }
+        .container {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+            padding: 20px;
+        }
+        .sidebar.active + .container {
+            margin-left: 250px;
+        }
+        .stock-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 60px auto 20px auto;
+        }
+        .stock-card {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+        }
+        .stock-card:hover {
+            transform: scale(1.05);
+            background-color: rgba(40, 40, 40, 0.9);
+        }
+        .stock-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .stock-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #66b3a1;
+        }
+        /* Center last item */
+        .stock-container div:last-child {
+            grid-column: 2 / span 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <div class="sidebar" id="sidebar">
+        <a href="/">Home</a>
+        <a href="/market">Market</a>
+        <a href="/predict">Predict</a>
+    </div>
+
+    <div class="container">
+        <h2>Select a Stock to Predict</h2>
+        <div class="stock-container">
+            <div class="stock-card" onclick="predictStock('AAPL')">
+                <img src="/static/images/apple.png" class="stock-image" alt="Apple">
+                <div class="stock-name">Apple</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('AMZN')">
+                <img src="/static/images/amazon.png" class="stock-image" alt="Amazon">
+                <div class="stock-name">Amazon</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('GC=F')">
+                <img src="/static/images/gold.png" class="stock-image" alt="Gold">
+                <div class="stock-name">Gold</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('GOOGL')">
+                <img src="/static/images/google.png" class="stock-image" alt="Google">
+                <div class="stock-name">Google</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('MSFT')">
+                <img src="/static/images/microsoft.png" class="stock-image" alt="Microsoft">
+                <div class="stock-name">Microsoft</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('NVDA')">
+                <img src="/static/images/nvidia.png" class="stock-image" alt="Nvidia">
+                <div class="stock-name">Nvidia</div>
+            </div>
+            <div class="stock-card" onclick="predictStock('TSLA')">
+                <img src="/static/images/tesla.png" class="stock-image" alt="Tesla">
+                <div class="stock-name">Tesla</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+    
+            sidebar.classList.toggle("active");
+            menuBtn.classList.toggle("rotate");
+        }
+    
+        function predictStock(stock) {
+            window.location.href = `/predict/${stock}`;
+        }
+    </script>
+    
+</body>
+</html>

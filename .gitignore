@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Flask
+instance/
+.webassets-cache
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+*.h5
+*.pkl
+*.npy
+models/*.h5
+models/*.pkl
+models/*.npy
+models/*_actual.npy
+models/*_forecast.npy
+
+# Logs
+*.log
+debug.log
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+tmp/
+temp/
