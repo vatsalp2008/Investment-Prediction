@@ -5,7 +5,6 @@ A sophisticated Flask-based investment prediction platform that provides real-ti
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13.0-orange.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.3.3-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 🚀 Overview
 
